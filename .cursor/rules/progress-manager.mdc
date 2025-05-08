@@ -1,0 +1,62 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Regras: Gerenciamento Avançado de Progresso e Histórico Cognitivo
+## Projeto: VibeForge - Sistema de Agentes IA via Vibe Coding
+
+---
+
+## 1. Organização de Progresso
+
+- Cada tarefa concluída deve:
+  - Atualizar `progress.md`.
+  - Criar ou atualizar um arquivo `.md` separado na pasta `/progress/`.
+
+- Atualizações devem conter:
+  - Título
+  - Descrição
+  - Arquivos impactados
+  - Decisão (Ω.raciocínio aplicado)
+  - Próximos passos
+
+---
+
+## 2. Estruturas Cognitivas Aplicadas ao Progresso
+
+| Ação | Estrutura Cognitiva | Observação |
+|:--|:--|:--|
+| Decidir criação/alteração | Ω | Aplicar raciocínio estratégico antes de agir. |
+| Detectar ajustes necessários | Ξ | Diagnóstico de necessidade de modificação no progresso. |
+| Sugerir novos padrões de documentação | Λ | Capturar boas práticas emergentes de rastreamento. |
+| Resumir ou sintetizar progresso complexo | Φ | Abstrair etapas múltiplas em estruturas organizadas. |
+| Manter linha do tempo clara | Ψ | Atualizar histórico cognitivo e decisões importantes. |
+
+---
+
+## 3. Organização de Arquivos
+
+| Pasta | Função |
+|:--|:--|
+| `/progress/progress.md` | Linha do tempo contínua do projeto. |
+| `/progress/*.md` | Registro de tarefas/códigos individuais. |
+| `/progress/specs/` | Armazenamento de especificações de testes derivados. |
+
+---
+
+## 4. Estrutura do `progress.md`
+
+Para cada entrada:
+
+```markdown
+### 🚀 Nome da Tarefa
+
+- **Descrição:** 
+- **Arquivos Impactados:**
+- **Raciocínio Aplicado (Ω):** 
+- **Diagnóstico se Existente (Ξ):** 
+- **Padrões Capturados (Λ):**
+- **Abstrações Derivadas (Φ):**
+- **Próximos Passos:** 
+

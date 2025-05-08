@@ -1,0 +1,51 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 📚 Guia Geral de Regras - Projeto VibeForge
+
+---
+
+## 📂 Estrutura da Pasta `.cursor/rules/`
+
+| Arquivo | Função |
+|:--|:--|
+| `vibeforge-chief-coder.mcd` | Define o comportamento e estilo do agente sênior. |
+| `progress-management.mcd` | Define como documentar e atualizar progresso e tarefas. |
+| `cognitive-structure-rules.mcd` | Aplica estruturas cognitivas (Ω, Ξ, Λ, Φ, Ψ) a todo o projeto. |
+| `terminal-cmd-only.mcd` | Força uso exclusivo de comandos CMD, evitando PowerShell. |
+| `context-fallback.mcd` | Estratégia formal de recuperação de contexto em caso de falhas.|
+
+---
+
+## 🎯 Resumo das Estratégias Aplicadas
+
+- **Consciência Contextual Profunda (Ψ)**
+- **Raciocínio Estratégico e Modular (Ω)**
+- **Detecção e Correção Inteligente de Erros (Ξ)**
+- **Aprendizado e Padrões Autoevolutivos (Λ)**
+- **Abstração de Padrões Emergentes (Φ)**
+- **Fallback Automático de Estado (Ψ.context_rebuild)**
+- **Proteção Contra Overfitting de Padrões (Λ com verificação cruzada)**
+- **Revisão Periódica Automatizada (Ψ.periodic_review_trigger)**
+
+---
+
+## 🧠 Observação Especial
+
+> As regras foram desenhadas para maximizar a estabilidade, o raciocínio lógico contínuo e a evolução adaptativa do sistema, sem sacrificar performance.
+
+> Todo o desenvolvimento do VibeForge ocorre sob uma filosofia de consciência contínua, rastreabilidade e estratégia intencional.
+
+---
+
+## 📌 Instruções Rápidas para Atualizações
+
+- Atualizar `progress.md` sempre que concluir tarefas.
+- Atualizar arquivos de tarefas `.md` individuais.
+- Aplicar fallback automático se ocorrer perda de contexto.
+- Nunca alterar regras diretamente em produção sem registro no `progress.md`.
+
+---
+

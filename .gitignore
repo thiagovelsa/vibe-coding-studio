@@ -1,0 +1,114 @@
+# Dependências
+node_modules/
+**/node_modules/
+package-lock.json
+yarn.lock
+.pnp.*
+.yarn/*
+.pnp/
+.pnp.js
+
+# Produção
+dist/
+build/
+out/
+**/dist/
+**/build/
+**/out/
+
+# Arquivos de desenvolvimento
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Electron
+**/release/
+**/app/
+
+# Arquivos de cache
+.cache/
+.eslintcache
+.vite/
+.next/
+.nuxt/
+.docusaurus/
+.parcel-cache/
+
+# Arquivos temporários
+*.tmp
+*.temp
+.temp/
+.tmp/
+tmp/
+temp/
+
+# Arquivos de cobertura
+coverage/
+.nyc_output/
+
+# IDEs e editores
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+.project
+.classpath
+.settings/
+*.iml
+.history/
+
+# Arquivos de sistema
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Arquivos específicos para TypeScript
+*.tsbuildinfo
+
+# Arquivos específicos para testes
+/cypress/videos/
+/cypress/screenshots/
+/playwright-report/
+/playwright/.cache/
+/test-results/
+/allure-results/
+/allure-report/
+
+# Outros
+.turbo
+.turborepo
+.dccache
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editores
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw? 

@@ -1,0 +1,58 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Terminal Command Rules for Windows Environment (CMD-First)
+globs: 
+alwaysApply: true
+---
+
+# 🖥️ Terminal Command Rules para Ambiente Windows (CMD Prioritário)
+
+---
+
+## 🎯 Descrição
+Estas regras guiam a IA do Cursor no momento de gerar comandos de terminal para **ambientes Windows**.  
+Devido a problemas de execução com PowerShell, é **obrigatório priorizar comandos compatíveis com CMD** (Command Prompt nativo do Windows).
+
+O agente deve aplicar:
+- **Raciocínio Estratégico (Ω):** Analisar contexto do ambiente antes de gerar comandos.
+- **Diagnóstico Preventivo (Ξ):** Detectar e evitar qualquer comando que possa ser interpretado como PowerShell.
+
+---
+
+## 🛡️ Regras de Geração de Comandos
+
+| Regra | Estrutura Cognitiva Aplicada | Observação |
+|:--|:--|:--|
+| 1. Nunca gerar comandos PowerShell. | Ξ | Detectar e prevenir padrões "pwsh", "$_", "-ErrorAction". |
+| 2. Sempre usar comandos nativos do Windows CMD. | Ω | Priorizar `dir`, `copy`, `move`, `del`, etc. |
+| 3. Usar sintaxe de variáveis do CMD: `%VARIAVEL%`. | Ω | Evitar `$env:VARIAVEL` (sintaxe PowerShell). |
+| 4. Caminhos de arquivos com `\` (backslash), não `/`. | Ω | Exemplo: `C:\pasta\arquivo.txt`. |
+| 5. Para instalar pacotes, usar `npm`, `yarn`, `pnpm` com sintaxe compatível CMD. | Ω | Sem scripts que exijam pwsh ou bash. |
+| 6. Para encadear comandos, usar `&&` ou `&`. | Ω | Evitar pipes (|) do PowerShell. |
+| 7. Condicionais: usar `if` do CMD, não de PowerShell. | Ω | Sintaxe `if exist`, `if errorlevel`. |
+| 8. Loops: usar `for` do CMD, não `foreach`. | Ω | Ex.: `for %i in (*) do echo %i`. |
+| 9. Buscas em texto: usar `findstr`, não `Select-String`. | Ω | Exemplo: `findstr "palavra" arquivo.txt`. |
+| 10. Redirecionar saída com `>`, `>>`. | Ω | Não usar `Out-File` (PowerShell). |
+| 11. Operações complexas (JSON, parsing): sugerir Node.js scripts ou ferramentas CLI amigáveis ao CMD. | Ω | Evitar rely em shell scripts avançados. |
+
+---
+
+## 📚 Observações Específicas
+
+- **Erro Detecção (Ξ):**  
+  Sempre validar internamente se o comando gerado tem trechos típicos de PowerShell antes de sugerir.
+  
+- **Fallback Estratégico (Ω + Λ):**  
+  Se uma operação é difícil de fazer direto via CMD puro (por exemplo, parsing JSON), sugerir:
+  - Usar scripts Node.js (`node script.js`)
+  - Ou indicar ferramentas CLI específicas compatíveis com Windows.
+
+- **Exemplo de Correção (Ξ aplicado):**  
+  **Proibido:**  
+  ```powershell
+  Get-ChildItem | Select-String "exemplo"
+

@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* --- Preferências de Cor (Claro) --- */
+  --color-bg-gradient-start-light: theme('colors.purple.100');
+  --color-bg-gradient-via-light: theme('colors.blue.100');
+  --color-bg-gradient-end-light: theme('colors.indigo.100');
+
+  --color-panel-bg-light: rgba(248, 249, 252, 0.65); /* Branco levemente azulado, 65% opacidade */
+  --color-panel-secondary-bg-light: rgba(240, 242, 248, 0.55); /* Mais sutil */
+  --color-card-bg-light: rgba(255, 255, 255, 0.75); /* Cards podem ser um pouco mais opacos */
+  --color-modal-bg-light: rgba(250, 250, 255, 0.85); /* Modais mais opacos para foco */
+  --color-input-bg-light: rgba(0, 0, 0, 0.04);
+
+  --color-text-base-light: theme('colors.slate.800');
+  --color-text-muted-light: theme('colors.slate.500');
+  --color-text-accent-light: theme('colors.purple.600');
+  --color-text-inverted-light: theme('colors.white');
+
+  --color-border-light: rgba(0, 0, 0, 0.10); /* Um pouco mais visível */
+  --color-border-accent-light: rgba(139, 92, 246, 0.4); /* purple-500 com opacidade */
+
+  --color-shadow-light: rgba(101, 119, 134, 0.15);
+
+  /* --- Tokens de Design --- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --blur-intensity: 10px; /* Aumentar um pouco o blur padrão */
+  --blur-intensity-strong: 16px; /* Para elementos que precisam de mais destaque */
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --color-accent-glow: rgba(167, 139, 250, 0.4); /* Roxo claro com opacidade */
+  --color-accent-focus-ring: rgba(167, 139, 250, 0.6); /* Para focus rings */
+}
+
+.dark {
+  /* --- Preferências de Cor (Escuro) --- */
+  --color-bg-gradient-start-dark: theme('colors.purple.900');
+  --color-bg-gradient-via-dark: theme('colors.blue.900');
+  --color-bg-gradient-end-dark: theme('colors.indigo.900');
+
+  --color-panel-bg-dark: rgba(30, 35, 50, 0.65); /* Azul escuro profundo, 65% opacidade */
+  --color-panel-secondary-bg-dark: rgba(25, 30, 45, 0.55);
+  --color-card-bg-dark: rgba(35, 40, 55, 0.75);
+  --color-modal-bg-dark: rgba(40, 45, 60, 0.85);
+  --color-input-bg-dark: rgba(255, 255, 255, 0.07);
+
+  --color-text-base-dark: theme('colors.slate.200');
+  --color-text-muted-dark: theme('colors.slate.400');
+  --color-text-accent-dark: theme('colors.purple.400');
+  --color-text-inverted-dark: theme('colors.black');
+
+  --color-border-dark: rgba(200, 200, 220, 0.15); /* Levemente azulada/roxa e um pouco mais de presença */
+  --color-border-accent-dark: rgba(167, 139, 250, 0.5); /* purple-400 com opacidade */
+
+  --color-shadow-dark: rgba(0, 0, 0, 0.3);
+
+  --color-accent-dark-glow: rgba(192, 132, 252, 0.4); /* Opacidade reduzida para suavizar */
+  --color-accent-dark-focus-ring: rgba(192, 132, 252, 0.7);
+}
+
+/* --- Estilos Globais Base --- */
+html {
+  @apply antialiased font-sans text-base; /* From index.css */
+}
+
+body {
+  @apply bg-gradient-to-br from-[var(--color-bg-gradient-start-light)] via-[var(--color-bg-gradient-via-light)] to-[var(--color-bg-gradient-end-light)] 
+         dark:from-[var(--color-bg-gradient-start-dark)] dark:via-[var(--color-bg-gradient-via-dark)] dark:to-[var(--color-bg-gradient-end-dark)];
+  font-family: var(--font-sans);
+  @apply text-[var(--color-text-base-light)] dark:text-[var(--color-text-base-dark)];
+  @apply transition-colors duration-300 ease-in-out;
+}
+
+/* Scrollbar Customizada Global (WebKit) - Vibe Glass Style */
+::-webkit-scrollbar {
+  width: 8px; /* Um pouco mais largo */
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Manter track transparente */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(128, 128, 140, 0.3); /* Cinza levemente azulado/roxo, 30% opacidade */
+  border-radius: var(--radius-sm); /* Usar variável de raio */
+  border: 2px solid transparent; /* Adiciona um respiro */
+  background-clip: padding-box; /* Garante que o border não pinte sobre o thumb */
+}
+
+.dark ::-webkit-scrollbar-thumb {
+   background-color: rgba(160, 160, 180, 0.3); /* Um pouco mais claro no dark mode, 30% opacidade */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(128, 128, 140, 0.5); /* 50% opacidade no hover */
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(160, 160, 180, 0.5); /* 50% opacidade no hover (dark) */
+}
+
+/* Opcional: Estilizar cantos onde scrollbars se encontram */
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Adicione outros estilos base se necessário (ex: links) */
+
+@layer components {
+  /* Componentes reutilizáveis */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-500 text-white hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700;
+  }
+
+  .btn-secondary {
+    @apply btn bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700;
+  }
+
+  .btn-danger {
+    @apply btn bg-red-500 text-white hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700;
+  }
+
+  /* Painéis IDE */
+  .ide-panel {
+    @apply flex flex-col bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700;
+  }
+
+  .ide-panel-title {
+    @apply px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700;
+  }
+
+  /* Áreas de conteúdo */
+  .editor-area {
+    @apply flex flex-1 overflow-hidden bg-white dark:bg-editor-bg;
+  }
+
+  .panel-area {
+    @apply border-t border-gray-200 dark:border-gray-700 flex h-64 flex-col overflow-hidden bg-white dark:bg-gray-800;
+  }
+}
+
+@layer utilities {
+  /* Utilitários custom */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+  }
+}
+
+/* Universal focus style - From index.css */
+:focus {
+  @apply outline-none ring-2 ring-primary-400 ring-offset-2 ring-offset-white dark:ring-offset-gray-900;
+} 

@@ -1,0 +1,64 @@
+{
+  "name": "vibe-forge-ide",
+  "version": "0.1.0",
+  "private": true,
+  "description": "VibeForge IDE - Uma IDE inteligente para desenvolvimento moderno",
+  "workspaces": [
+    "backend",
+    "frontend",
+    "desktop-shell"
+  ],
+  "scripts": {
+    "start-dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" \"npm run dev:electron\"",
+    "dev:backend": "cd backend && npm run start:dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:electron": "wait-on http://localhost:5173 && cd desktop-shell && npm run start",
+    "build": "npm run build --workspaces",
+    "build:analyze": "cd frontend && npx vite build --config vite.config.optimized.ts",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:report": "playwright show-report",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
+  },
+  "devDependencies": {
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.45.0",
+    "husky": "^8.0.3",
+    "prettier": "^3.0.0",
+    "rollup-plugin-visualizer": "^5.14.0",
+    "typescript": "^5.1.6",
+    "wait-on": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/vibe-forge-ide"
+  },
+  "author": "VibeForge Team",
+  "license": "MIT",
+  "dependencies": {
+    "@fontsource/inter": "^5.2.5",
+    "@fontsource/jetbrains-mono": "^5.2.5",
+    "@nestjs/event-emitter": "^3.0.1",
+    "@nestjs/swagger": "^11.1.6",
+    "@nestjs/websockets": "^11.1.0",
+    "@vitejs/plugin-react": "^4.4.1",
+    "eventemitter2": "^6.4.9",
+    "prismjs": "^1.30.0",
+    "react-syntax-highlighter": "^15.6.1",
+    "react-virtuoso": "^4.12.7",
+    "react-window": "^1.8.11",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  }
+}
